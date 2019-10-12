@@ -8,34 +8,36 @@ defmodule UrlShortener.URL do
 
   alias UrlShortener.URL.Mutator
 
+  
   @doc """
   Returns the list of mutators.
-
+  
   ## Examples
-
-      iex> list_mutators()
-      [%Mutator{}, ...]
-
+  
+  iex> list_mutators()
+  [%Mutator{}, ...]
+  
   """
   def list_mutators do
     Repo.all(Mutator)
   end
-
+  
   @doc """
   Gets a single mutator.
-
+  
   Raises `Ecto.NoResultsError` if the Mutator does not exist.
-
+  
   ## Examples
-
-      iex> get_mutator!(123)
-      %Mutator{}
-
-      iex> get_mutator!(456)
-      ** (Ecto.NoResultsError)
-
+  
+  iex> get_mutator!(123)
+  %Mutator{}
+  
+  iex> get_mutator!(456)
+  ** (Ecto.NoResultsError)
+  
   """
   def get_mutator!(id), do: Repo.get!(Mutator, id)
+  def get_by(conditions), do: Repo.get_by!(Mutator, conditions)
 
   @doc """
   Creates a mutator.

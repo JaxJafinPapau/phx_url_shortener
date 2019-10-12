@@ -9,4 +9,8 @@ defmodule UrlShortenerWeb.Router do
     pipe_through :api
     resources "/mutators", MutatorController
   end
+
+  scope "/", UrlShortenerWeb do
+    get ":path", RedirectController, :show
+  end
 end
